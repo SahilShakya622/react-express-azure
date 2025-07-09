@@ -30,8 +30,8 @@ jobs:
           npm install
           npm run build
 
-      - name: Zip React build folder
-        run: zip -r ../release.zip build
+      - name: Zip contents of build folder (not the folder itself) ✅
+        run: cd build && zip -r ../../release.zip ./*
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
