@@ -1,4 +1,4 @@
-name: Build and deploy Node.js backend to Azure Web App - express-backend-1006
+name: Build and deploy Express backend to Azure Web App - express-backend-1006
 
 on:
   push:
@@ -14,13 +14,13 @@ jobs:
 
     defaults:
       run:
-        working-directory: backend  # 👈🏽 Target backend folder
+        working-directory: backend  # 👈 Target backend folder
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20.x'
@@ -28,8 +28,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Zip backend files
-        run: zip -r ../backend-release.zip ./*
+      - name: Zip backend code
+        run: zip -r ../backend-release.zip .
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -40,7 +40,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
-
     permissions:
       id-token: write
       contents: read
