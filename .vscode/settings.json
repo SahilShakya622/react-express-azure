@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/3ea491f0-413f-4562-b1ac-61392523a544/resourceGroups/react-express-rg/providers/Microsoft.Web/sites/react-frontend-1006",
+    "appService.deploySubpath": "frontend\\build"
+}
