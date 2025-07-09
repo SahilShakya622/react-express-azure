@@ -25,9 +25,10 @@ jobs:
         with:
           node-version: '20.x'
 
-      - name: Install dependencies and build React app
+      - name: Install dependencies, build, and include serve
         run: |
           npm install
+          npm install serve
           npm run build
 
       - name: Zip contents of build folder (not the folder itself) ✅
